@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5 p-3 bg-success" style="margin-bottom:100px;">
+    <h2 class="text-center">Shopping Cart</h2>
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="table-main table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Images</th>
+                                    <th>Product Name</th>
+                                    <th>Unit Price</th>
+                                    <th>Quantity</th>
+                                    <th>Sub Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in cart %}
+                                <tr style="background-color:#c2f0c2;">
+                                    <td >
+                                        <a href="#">
+									<img src="{{i.product.image.url}}" height="200px" width="100px" class="img-thumbnail p-1" alt="" />
+								</a>
+                                    </td>
+                                    <td class="name-pr">
+                                        <a href="#">
+									{{i.product.name}}
+								</a>
+                                    </td>
+                                    <td class="price-pr text-dark">
+                                        <p>{{i.product.price}}</p>
+                                    </td>
+                                    <td class="quantity-box"><input type="number" size="4" value="{{i.quantity}}" min="0" step="1" class="c-input-text qty text"></td>
+                                    <td class="total-pr text-dark">
+                                        <p>{{i.subtotal}}</p>
+                                    </td>
+
+                                    <td>
+                                        {% if i.product.stock > 0 %}
+                                        <a href="{% url 'cart:addtocart' i.product.id %}"><i class="fa fa-plus-circle text-danger" aria-hidden="true"></i></a>
+                                        <a href="{% url 'cart:cartremove' i.product.id %}"><i class="fa fa-minus-circle text-danger" aria-hidden="true"></i></a>
+                                        <a href="{% url 'cart:cartfullremove' i.product.id %}"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>
+                                        {% else %}
+                                        <a href="{% url 'cart:cartremove' i.product.id %}"><i class="fa fa-minus-circle text-danger" aria-hidden="true"></i></a>
+                                        <a href="{% url 'cart:cartfullremove' i.product.id %}"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <div class="col-lg-4">
+                    <div class="table-main table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Checkout</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background-color:#c2f0c2;">
+                                    <td class="text-center" >
+                                        Total:<span class="text-dark">{{total}}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-between">
+                       <a href="{% url 'cart:orderform' %}" class="btn btn-secondary">Place Order</a>
+                       <a href="{% url 'shop:category' %}" class="btn btn-secondary">Continue Shopping</a>
+    </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div>
+
+        </div>
+
+            <div class="row my-5">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="coupon-box">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control" placeholder="Enter your coupon code" aria-label="Coupon code" type="text">
+                            <div class="input-group-append">
+                                <button class="btn btn-theme" type="button">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="update-box">
+                        <input value="Update Cart" type="submit">
+                    </div>
+                </div>
+            </div></div>
+        </div></div>
+            <div>
+            </div>
+
+
+{% endblock %}
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->

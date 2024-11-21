@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5 p-3 bg-success" style="margin-bottom:100px;">
+<h1 class="text-center">Edit Book Details</h1>
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="mb-3">
+  <label class="form-label">Stock</label>
+  <input type="number" class="form-control" name="s" value="{{pro.stock}}" placeholder="Enter new stock">
+</div>
+    <div class="mb-3 text-center">
+    <input type="submit" class="btn btn-dark text-light px-4">
+  </div>
+</form>
+    </div>
+
+{% endblock %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->

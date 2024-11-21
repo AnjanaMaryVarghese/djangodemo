@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center>
+<div class="container mt-5 p-3 text-dark" style="margin-bottom:100px;background-color:#99ff99">
+
+<h1 class="text-center text-dark">Customer Name: {{user.first_name}}</h1>
+        {% for i in orders %}
+    <div class="about-box-main mt-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1">
+                    </div>
+				<div class="col-lg-4 bg-secondary">
+                    <div class="banner-frame mt-2"> <img height="300px" width="60%" src="{{i.product.image.url}}" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <h2><span style="color:#b0b435">Product name:</span><b>{{i.product.name}}</b></h2>
+                    <p><span style="color:#b0b435">Price:</span><b>{{i.product.price}}</b></p>
+                    <p><span style="color:#b0b435">No: of items:</span><b>{{i.no_of_items}}</b></p>
+                    <p><span style="color:#b0b435">Order id:</span><b>{{i.order_id}}</b></p>
+                    <p><span style="color:#b0b435">Ordered on:</span><b>{{i.ordered_date}}</b></p>
+                    <p><span style="color:#b0b435">Deliver Status:</span><b>{{i.delivery_status}}</b></p>
+
+                </div>
+            </div>
+            </div></div>{% endfor %}
+
+</div>
+</center>
+    {% endblock %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->

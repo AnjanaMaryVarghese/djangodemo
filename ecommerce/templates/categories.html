@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+
+    <!-- Start Slider -->
+    <div id="slides-shop" class="cover-slides">
+        <ul class="slides-container">
+            <li class="text-center">
+                <img src="{% static 'images/phone.jpg' %}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> ShopSmart</strong></h1>
+                            <p class="m-b-40">INTELLIGENT MOBILE PHONES <br>20% OFF SALE</p>
+                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-center">
+                <img src="{% static 'images/grocer.jpg' %}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> ShopSmart</strong></h1>
+                            <p class="m-b-40">Order now your daily groceries!!!<br> Get 10% discount on your first order</p>
+                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-center">
+                <img src="{% static 'images/footwear.jpg' %}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> ShopSmart</strong></h1>
+                            <p class="m-b-40">Order now your trendy footwear!!!<br> Get 20% discount on your first order</p>
+                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-center">
+                <img src="{% static 'images/fashion.jpg' %}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> ShopSmart</strong></h1>
+                            <p class="m-b-40">Trendy Fashion Clothes...<br>30% OFFER</p>
+                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="slides-navigation">
+            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </div>
+    </div>
+<div class="container-fluid w-50 mx-auto mt-5">
+    <h1 class="text-center" style="font-size:40px;">Explore Our collections</h1>
+    <p style="text-align:justify;line-height:2;font-size:22px;">Browse by Category mainly includes <span style="color:#1aa3ff;">CLOTHS,GROCERIES,MOBILEPHONES</span></p>
+
+</div>
+<div class="categories-shop">
+        <div class="container">
+            <div class="row">
+                {% for i in cat %}
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">'
+                        <img src="{{i.image.url}}" height="300px" width="100%" alt="" />
+                        <a class="btn hvr-hover" href="{% url 'shop:product' i.id%}">{{i.name}}</a>
+                    </div>
+                </div>
+                {% endfor%}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
