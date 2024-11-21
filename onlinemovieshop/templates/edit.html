@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-3 mx-auto">
+<h3 class="text-center">Edit Movie Details</h3>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}     <!-- it is a security feature of django -->
+
+    <div class="mb-3">
+  <label class="form-label">Title</label>
+  <input type="text" class="form-control" name="ti" value="{{movie.title}}" placeholder="Title">
+</div>
+    <div class="mb-3">
+  <label class="form-label">Description</label>
+  <textarea class="form-control" name="d" >{{movie.description}}</textarea>
+</div>
+    <div class="mb-3">
+  <label  class="form-label">Language</label>
+  <input type="text" class="form-control" name="la" value="{{movie.language}}" placeholder="Language">
+</div>
+    <div class="mb-3">
+  <label  class="form-label">Year</label>
+  <input type="text" class="form-control" name="yr" value="{{movie.year}}" placeholder="Year">
+</div>
+    <div class="mb-3">
+        <img src="{{movie.image.url}}" height="100px" width="100px">
+  <label  class="form-label">Image</label>
+  <input type="file" class="form-control" name="im" >
+</div>
+    <div class="mb-3 text-center">
+    <input type="submit" class="btn btn-light text-dark px-4">
+  </div>
+</form>
+    </div>
+
+{% endblock %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
